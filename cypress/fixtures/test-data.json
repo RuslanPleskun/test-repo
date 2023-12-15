@@ -1,0 +1,19 @@
+{
+  "phonesCategory": "Смартфони та телефони",
+  "laptopsCategory": "Ноутбуки, ПК та планшети",
+  "laptopsSubcategory": "Ноутбуки",
+  "show": "Показати",
+  "xiaomiBrand": "Xiaomi",
+  "phoneFromPrice": "5000",
+  "phoneToPrice": "6000",
+  "xiaomiRedmiNote": "Xiaomi Redmi Note 12 Pro 8/256 Graphite Gray",
+  "xiaomiRedmiBook": "Ноутбук Xiaomi RedmiBook Pro 14 R5/16G/512G/W11 (JYU4399CN)",
+  "iPhone15ProMax": "iPhone 15 Pro Max 256GB",
+  "singleItem": "1",
+  "numberOfItemsInComparisonList": "3",
+  "itemTitlesForComparison": [
+    "Samsung Galaxy S21 FE 8/256Gb Gray(SM-G990BZAWSEK)",
+    "Samsung Galaxy S23 Ultra 12/512 BLACK (SM-S918BZKHSEK)",
+    "Apple iPhone 15 Pro Max 256GB Blue Titanium (MU7A3)"
+  ]
+}
