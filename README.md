@@ -8,11 +8,12 @@
 
 2. Run `npm install` to install all the dependencies
 
-3. Run `npm install --save-dev mochawesome mochawesome-merge mochawesome-report-generator cypress-multi-reporters` to install Mochawesome needed dependencies
+3. Run `npm i --save-dev cypress-mochawesome-reporter` to install Mochawesome needed dependencies
 
 4. Run the following commands to verify test results:
 
-* `npm run test` - to run tests in headless mode
+* `npm run e2e_complete` - to run tests in headless mode and generate report with attached video and screenshots(only if test fails and report will be visible only locally, it was ignored in .gitignore file)
+* `npm run test` - to run tests in headed mode
 * `npx cypress open` - to run tests manually using UI
 
 
