@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "cypress:run": "cypress run --reporter mochawesome",
-    "mochawesome:merge": "mochawesome-merge mochareports/*.json > mochareports/report.json",
-    "mochawesome:generate": "marge mochareports/report.json -f report -o mochareports",
-    "copy:attachments": "cp -r cypress/screenshots mochareports && cp -r cypress/videos mochareports",
-    "test": "npm run cypress:run && npm run copy:attachments && npm run mochawesome:merge && npm run mochawesome:generate"
+    "open": "cypress open",
+    "test": "cypress run --browser chrome --headed",
+    "e2e": "cypress run --browser chrome --spec 'cypress/e2e/*.js'",
+    "cleanup": "rm -rf report && mkdir report",
+    "e2e_complete": "npm run cleanup && npm run e2e"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
   "homepage": "https://github.com/RuslanPleskun/test-repo#readme",
   "devDependencies": {
     "cypress": "^13.6.1",
+    "cypress-mochawesome-reporter": "^3.7.0",
     "cypress-multi-reporters": "^1.6.4",
     "mochawesome": "^7.1.3",
     "mochawesome-merge": "^4.3.0",

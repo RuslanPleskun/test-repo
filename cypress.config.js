@@ -6,18 +6,21 @@ module.exports = defineConfig({
   video: true,
   watchForFileChanges: false,
   screenshotOnRunFailure: true,
-  reporter: 'mochawesome',
+  reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
-    reportDir: "mochareports",
+    reportDir: "report",
     overwrite: true,
-    html: true,
-    json: true,
-    attachments: true
+    reportPageTitle: 'Tests Run Report',
+    saveAllAttempts: false,
+    charts: true,
+    embeddedScreenshots: true,
+    videoOnFailOnly: true
   },
   retries: 1,
   e2e: {
     baseUrl: 'https://allo.ua/',
     setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
     },
   },
 });
