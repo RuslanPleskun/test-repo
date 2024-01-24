@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "open": "cypress open",
-    "test": "cypress run --browser chrome",
+    "test": "cypress run --browser chrome --headed",
     "e2e": "cypress run --browser chrome --spec 'cypress/e2e/*.js'",
     "cleanup": "rm -rf report && mkdir report",
     "e2e_complete": "npm run cleanup && npm run e2e"
