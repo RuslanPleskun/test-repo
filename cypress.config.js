@@ -6,7 +6,6 @@ module.exports = defineConfig({
   video: true,
   watchForFileChanges: false,
   screenshotOnRunFailure: true,
-  chromeWebSecurity: false,
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
     reportDir: "report",
@@ -18,9 +17,11 @@ module.exports = defineConfig({
     videoOnFailOnly: true
   },
   retries: 1,
-  baseUrl: 'https://allo.ua/',
-
-  setupNodeEvents(on, config) {
-    require('cypress-mochawesome-reporter/plugin')(on);
+  e2e: {
+    baseUrl: 'https://allo.ua/',
+    chromeWebSecurity: false,
+    setupNodeEvents(on, config) {
+      require('cypress-mochawesome-reporter/plugin')(on);
+    },
   },
 });
