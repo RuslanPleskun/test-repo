@@ -83,9 +83,9 @@ export class ItemsPage {
     return cy.get('.mh-button.mh-compare');
   }
 
-  verifySearchedItems(textOToBePresentOnItem) {
+  verifySearchedItems(textToBePresentOnItem) {
     this.getItemTitle().each(($element) => {
-      cy.wrap($element).should('contain.text', textOToBePresentOnItem);
+      cy.wrap($element).should('contain.text', textToBePresentOnItem);
     });
   }
 
