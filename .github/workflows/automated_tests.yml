@@ -22,10 +22,5 @@ jobs:
     - name: Install Mochawesome dependencies for reporting
       run: npm i --save-dev cypress-mochawesome-reporter
 
-    - name: Install Google Chrome
-      run: |
-        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-        sudo apt-get install ./google-chrome-stable_current_amd64.deb -y
-
     - name: Run automated tests
       run: npm run test
