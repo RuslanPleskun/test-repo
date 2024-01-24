@@ -8,6 +8,7 @@ const { compareItemsPage } = require("../component-objects/compareItemsPage");
 describe('Test Cases for Allo App', () => {
   
   beforeEach(() => {
+    cy.clearCookies();
     cy.visit('/');
     cy.log('Step 1: Open marketplace url. Verify it.');
     cy.url().should('eq', Cypress.config('baseUrl'));
