@@ -10,9 +10,10 @@ describe('Test Cases for Allo App', () => {
   beforeEach(() => {
     cy.visit('/', {
       headers: {
-        'accept': 'application/json, text/plain, */*',
-        'user-agent': 'axios/0.27.2'
-      }
+        'Accept': 'application/json, text/plain, */*',
+        'User-Agent': 'axios/0.27.2'
+      },
+      retries: { maxRetry: 3, delay: 1000 }
     });
     cy.log('Step 1: Open marketplace url. Verify it.');
     cy.url().should('eq', Cypress.config('baseUrl'));
