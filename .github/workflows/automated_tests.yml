@@ -1,0 +1,31 @@
+name: automated tests
+on:
+  workflow_dispatch:
+jobs:
+  run_tests:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v3
+      with:
+        ref: main
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: 16
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Install Mochawesome dependencies for reporting
+      run: npm i --save-dev cypress-mochawesome-reporter
+
+    - name: Install Google Chrome
+      run: |
+        wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        sudo apt-get install ./google-chrome-stable_current_amd64.deb -y
+
+    - name: Run automated tests
+      run: npm run test
