@@ -16,25 +16,25 @@ describe('Test Cases for Allo App', () => {
   it('Verify if the price filter working correctly for the following marketplaces', () => {
     cy.fixture('test-data').then((data) => {
       cy.log('Step 2: Open category and subcategory if it is necessary.');
-      mainPage.selectCategory(data.phonesCategory);
+      mainPage.selectCategory(data.PHONES_CATEGORY);
       subcategoryPage.selectPhonesSubcategory();
 
       cy.log('Step 3: Navigate to the filters section, for the following marketplaces it is located on the left side. Apply 2-3 filters.');
-      itemsPage.enterPriceFrom(data.phoneFromPrice);
-      itemsPage.enterPriceTo(data.phoneToPrice);
-      itemsPage.selectBrand(data.xiaomiBrand);
+      itemsPage.enterPriceFrom(data.PHONE_FROM_PRICE);
+      itemsPage.enterPriceTo(data.PHONE_TO_PRICE);
+      itemsPage.selectBrand(data.XIAOMI_BRAND);
       itemsPage.selectAvailableInCityOption();
-      itemsPage.showFilteredItems(data.show);
+      itemsPage.showFilteredItems(data.SHOW);
 
       cy.log('Step 4: Verify that all the items on the page are sorted correctly by the "from" and "to" price filters you entered.');
-      itemsPage.verifyFilterCorrectness(data.phoneFromPrice, data.phoneToPrice);
+      itemsPage.verifyFilterCorrectness(data.PHONE_FROM_PRICE, data.PHONE_TO_PRICE);
     });
   });
 
   it('Add items to the basket', () => {
     cy.fixture('test-data').then((data) => {
       cy.log('Step 2: Open category and subcategory if it is necessary.');
-      mainPage.selectCategory(data.phonesCategory);
+      mainPage.selectCategory(data.PHONES_CATEGORY);
       subcategoryPage.selectPhonesSubcategory();
 
       cy.log('Step 3: Add any item to the basket.');
@@ -43,33 +43,33 @@ describe('Test Cases for Allo App', () => {
 
       cy.log('Step 4: Select another category and add an item from that category.');
       itemsPage.gotoMainPage();
-      mainPage.selectCategory(data.laptopsCategory);
-      subcategoryPage.selectSubcategory(data.laptopsSubcategory);
+      mainPage.selectCategory(data.LAPTOPS_CATEGORY);
+      subcategoryPage.selectSubcategory(data.LAPTOPS_SUBCATEGORY);
       itemsPage.addFirstShownItemToShoppingCart();
       itemsPage.clickComebackButton();
 
       cy.log('Step 5: Verify information of items inside the basket.');
       itemsPage.gotoShoppingCartPage();
-      shoppingCartPage.verifyFirstItemPresence(data.xiaomiRedmiNote);
-      shoppingCartPage.verifySecondItemPresence(data.xiaomiRedmiBook);
+      shoppingCartPage.verifyFirstItemPresence(data.XIAOMI_REDMI_NOTE);
+      shoppingCartPage.verifySecondItemPresence(data.XIAOMI_REDMI_BOOK);
 
       cy.log('Step 6: Verify that the price is calculated correctly.');
       shoppingCartPage.verifyTotalPriceOfItems();
 
       cy.log('Step 7: Verify that the delete item button is clickable.');
       shoppingCartPage.removeFirstItemFromShoppingCart();
-      shoppingCartPage.verifyNumberOfItemsOnThePage(data.singleItem);
-      shoppingCartPage.verifyItemAbsense(data.xiaomiRedmiNote);
+      shoppingCartPage.verifyNumberOfItemsOnThePage(data.SINGLE_ITEM);
+      shoppingCartPage.verifyItemAbsense(data.XIAOMI_REDMI_NOTE);
     });
   });
 
   it('Search the item', () => {
     cy.fixture('test-data').then((data) => {
       cy.log('Step 2: Search random item by name.');
-      mainPage.searchItem(data.iPhone15ProMax);
+      mainPage.searchItem(data.IPHONE15_PRO_MAX);
 
       cy.log('Step 3: Verify that all items are correctly displayed according to your searching request (only on the first page).');
-      itemsPage.verifySearchedItems(data.iPhone15ProMax);
+      itemsPage.verifySearchedItems(data.IPHONE15_PRO_MAX);       // Defect here, sort functionality does not work properly
     });
   });
 
@@ -79,23 +79,23 @@ describe('Test Cases for Allo App', () => {
       mainPage.verifyThatCompareButtonIsDisabled();
 
       cy.log('Step 3: Add at least 3 items to the comparison list.');
-      mainPage.selectCategory(data.phonesCategory);
+      mainPage.selectCategory(data.PHONES_CATEGORY);
       subcategoryPage.selectPhonesSubcategory();
-      itemsPage.addItemToCompareList(data.itemTitlesForComparison[0]);
-      itemsPage.addItemToCompareList(data.itemTitlesForComparison[1]);
-      itemsPage.addItemToCompareList(data.itemTitlesForComparison[2]);
+      itemsPage.addItemToCompareList(data.ITEM_TITLES_FOR_COMPARISON[0]);
+      itemsPage.addItemToCompareList(data.ITEM_TITLES_FOR_COMPARISON[1]);
+      itemsPage.addItemToCompareList(data.ITEM_TITLES_FOR_COMPARISON[2]);
 
       cy.log('Step 4: Open Comparison List page.');
       itemsPage.gotoCompareItemsPage();
 
       cy.log('Step 5: Verify that the correct items were added to the list.');
-      compareItemsPage.verifyThatTheCorrectItemsWereAddedToTheList(data.itemTitlesForComparison);
+      compareItemsPage.verifyThatTheCorrectItemsWereAddedToTheList(data.ITEM_TITLES_FOR_COMPARISON);
 
       cy.log('Step 6: Verify that the item can be removed from the list.');
       compareItemsPage.removeFirstItem();
       itemsPage.gotoCompareItemsPage();
-      compareItemsPage.verifyNumberOfitemsLeft(data.numberOfItemsInComparisonList); // Should be 2 instead of 3 for the test to pass
-      compareItemsPage.verifyAbsenseOfItem(data.itemTitlesForComparison[0]);
+      compareItemsPage.verifyNumberOfitemsLeft(data.NUMBER_OF_ITEMS_IN_COMPARISON_LIST);
+      compareItemsPage.verifyAbsenseOfItem(data.ITEM_TITLES_FOR_COMPARISON[0]);
     });
   })
 });
