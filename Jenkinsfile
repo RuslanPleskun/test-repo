@@ -5,8 +5,7 @@ pipeline {
             steps {
                 echo 'Building the test environment'
                 script {
-                    // Use 'npm ci' for faster and more reproducible builds
-                    sh 'npm ci'
+                    sh 'npm i'
                     sh 'npm install --save-dev cypress-mochawesome-reporter'
                     sh 'npm audit fix'
                 }
