@@ -20,6 +20,7 @@ module.exports = defineConfig({
   retries: 1,
   e2e: {
     baseUrl: 'https://allo.ua/',
+    experimentalModifyObstructiveThirdPartyCode: true,
     setupNodeEvents(on, config) {
       require('cypress-mochawesome-reporter/plugin')(on);
     },
