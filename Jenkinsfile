@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:20.11.0-alpine3.19'
+            args '-p 8080:8080'
+        }
+    }
     stages {
         stage('Build') {
             steps {
@@ -28,7 +33,7 @@ pipeline {
     }
     post {
         always {
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'cypress/reports', reportFiles: '**/index.html', reportName: 'HTML Report', reportTitles: ''])
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report', reportFiles: '**/index.html', reportName: 'HTML Report', reportTitles: ''])
         }
     }
 }
