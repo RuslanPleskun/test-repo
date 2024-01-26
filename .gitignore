@@ -1,6 +1,4 @@
 node_modules
-cypress/videos
 .DS_Store
-cypress/screenshots
 package-lock.json
-report
+cypress/report
