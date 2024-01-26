@@ -7,9 +7,11 @@ module.exports = defineConfig({
   watchForFileChanges: false,
   screenshotOnRunFailure: true,
   chromeWebSecurity: false,
+  screenshotsFolder: 'cypress/report/screenshots',
+  videosFolder: 'cypress/report/videos',
   reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
-    reportDir: "report",
+    reportDir: 'cypress/report',
     overwrite: true,
     reportPageTitle: 'Tests Run Report',
     saveAllAttempts: false,
