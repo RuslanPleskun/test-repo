@@ -1,10 +1,8 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:20.11.0-alpine3.19'
-            args '-p 8080:8080'
+    agent any
+    tools {
+        nodejs 'node'
         }
-    }
     stages {
         stage('Build') {
             steps {
@@ -33,7 +31,7 @@ pipeline {
     }
     post {
         always {
-            publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'report', reportFiles: '**/index.html', reportName: 'HTML Report', reportTitles: ''])
+            publishHTML([allowMissing: false, alwaysLinkToLastBuild: true, keepAll: true, reportDir: 'reports', reportFiles: '**/index.html', reportName: 'HTML Report', reportTitles: ''])
         }
     }
 }
