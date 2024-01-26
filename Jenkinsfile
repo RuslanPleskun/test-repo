@@ -3,6 +3,9 @@ pipeline {
     tools {
         nodejs 'node'
         }
+    options {
+        ansiColor('css')
+    }
     stages {
         stage('Clone Repository') {
             steps {
