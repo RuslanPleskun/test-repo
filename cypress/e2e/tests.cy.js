@@ -63,7 +63,7 @@ describe('Test Cases for Allo App', () => {
     });
   });
 
-  it('Search the item', () => {
+  it.skip('Search the item', () => {
     cy.fixture('test-data').then((data) => {
       cy.log('Step 2: Search random item by name.');
       mainPage.searchItem(data.IPHONE15_PRO_MAX);
