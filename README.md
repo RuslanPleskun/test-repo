@@ -21,7 +21,7 @@
 
 Cypress expects certain folders to be named a certain way so if you're wanting to rename folders you need to update the cypress.json file to tell it where to look for those files.
 
-* fixtures - used for static data that needs to be used by the tests and they should reside in the fixtures folder
-* e2e - the actual tests that get ran, they should reside in the integration folder
-* component-objects - classical approach with page objects
-* support - utility functions and plugins for Cypress
+* `fixtures` - used for static data that needs to be used by the tests and they should reside in the fixtures folder
+* `e2e` - the actual tests that get ran, they should reside in the integration folder
+* `component-objects` - classical approach with page objects
+* `support` - utility functions and plugins for Cypress
